@@ -121,28 +121,7 @@ async function fetchJoke() {
     output.classList.add("error");
   }
 }
-
-// task 6 countdown
-// function startCountdown() {
-//   let count = 5;
-//   const output = document.getElementById("countdownOutput");
-//   const ground = output.querySelector(".ground");
-
-//   function update() {
-//     output.innerHTML = `<span class="countdown-number">${
-//       count > 0 ? count : "Go!"
-//     }</span><div class="ground"></div>`;
-//     ground.classList.remove("crack");
-//     void ground.offsetWidth;
-//     ground.classList.add("crack");
-
-//     if (count > 0) {
-//       count--;
-//       setTimeout(update, 1000);
-//     }
-//   }
-//   update();
-// }
+//task 6 - countdowning
 function startCountdown() {
   let count = 5;
   const output = document.getElementById("countdownOutput");
