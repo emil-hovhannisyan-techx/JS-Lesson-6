@@ -21,6 +21,7 @@ button {
 textarea {
   width: 700px;
   height: 100px;
+  resize: none;
 }
 #cookieBanner {
   display: none;
