@@ -46,3 +46,93 @@ button:hover {
 .error {
   color: red;
 }
+/* Wave animation for Tick Logger (Task 7) */
+.wave-text span {
+  display: inline-block;
+  font-size: 2rem;
+  animation: wave 2s ease-in-out infinite;
+}
+.wave-text span:nth-child(1) {
+  animation-delay: 0s;
+}
+.wave-text span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.wave-text span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.wave-text span:nth-child(4) {
+  animation-delay: 0.6s;
+}
+@keyframes wave {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+/* Falling and cracking animation for Countdown (Task 6) */
+#countdownOutput {
+  position: relative;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.countdown-number {
+  position: absolute;
+  opacity: 0;
+  animation: fall 1s ease-out forwards;
+}
+@keyframes fall {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  70% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  85% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.ground {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 10px;
+  background: #ccc;
+}
+.ground.crack::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #555;
+  opacity: 0;
+  animation: crack 0.5s ease-out forwards;
+}
+@keyframes crack {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+}

@@ -20,10 +20,24 @@ document.addEventListener("DOMContentLoaded", function () {
     .getElementById("acceptCookies")
     .addEventListener("click", acceptCookies);
 
-  //task 3 - clear everything
+  // task 4 - clear everything
   document
     .getElementById("clearStorage")
     .addEventListener("click", clearAllStorages);
+
+  // task 5 - Fetch a good ol' dad joke
+  document.getElementById("getJoke").addEventListener("click", fetchJoke);
+
+  //task 6 countdown
+  document
+    .getElementById("startCountdown")
+    .addEventListener("click", startCountdown);
+
+  //task 7 - intervaling!
+  document
+    .getElementById("startTicking")
+    .addEventListener("click", startTicking);
+  document.getElementById("stopTicking").addEventListener("click", stopTicking);
 });
 
 // task 1: function for saving user profile to local storage
@@ -87,4 +101,83 @@ function clearAllStorages() {
   sessionStorage.clear();
   setCookie("consent", "", -1); // delete cookie
   console.log("All storages and cookies cleared.");
+}
+
+// task 5 fetch a DAD joke
+
+async function fetchJoke() {
+  const output = document.getElementById("jokeOutput");
+  output.textContent = "Loading..";
+  try {
+    const response = await fetch("https://icanhazdadjoke.com/", {
+      headers: { Accept: "application/json" },
+    });
+    if (!response.ok) throw new Error("Network error!");
+    const data = await response.json();
+    output.textContent = data.joke;
+    output.classList.remove("error");
+  } catch (error) {
+    output.textContent = "Failed to fetch a joke";
+    output.classList.add("error");
+  }
+}
+
+// task 6 countdown
+// function startCountdown() {
+//   let count = 5;
+//   const output = document.getElementById("countdownOutput");
+//   const ground = output.querySelector(".ground");
+
+//   function update() {
+//     output.innerHTML = `<span class="countdown-number">${
+//       count > 0 ? count : "Go!"
+//     }</span><div class="ground"></div>`;
+//     ground.classList.remove("crack");
+//     void ground.offsetWidth;
+//     ground.classList.add("crack");
+
+//     if (count > 0) {
+//       count--;
+//       setTimeout(update, 1000);
+//     }
+//   }
+//   update();
+// }
+function startCountdown() {
+  let count = 5;
+  const output = document.getElementById("countdownOutput");
+  function update() {
+    output.innerHTML = `<span class="countdown-number">${
+      count > 0 ? count : "Go!"
+    }</span><div class="ground crack"></div>`;
+    if (count > 0) {
+      count--;
+      setTimeout(update, 1000);
+    }
+  }
+  update();
+}
+
+//task 7 - intervaling
+let tickInterval = null;
+let tickCount = 0;
+
+function startTicking() {
+  if (!tickInterval) {
+    tickInterval = setInterval(() => {
+      const output = document.getElementById("tickOutput");
+      const span = document.createElement("span");
+      span.textContent = "Tick ";
+      span.style.animationDelay = `${(tickCount % 4) * 0.2}s`;
+      output.appendChild(span);
+      tickCount++;
+    }, 1000);
+  }
+}
+
+function stopTicking() {
+  if (tickInterval) {
+    clearInterval(tickInterval);
+    tickInterval = null;
+  }
 }
