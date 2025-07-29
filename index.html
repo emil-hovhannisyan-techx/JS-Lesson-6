@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Storage and Timer Tasks</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Task 1: User Profile with localStorage -->
+    <div class="section">
+      <h2>User Profile</h2>
+      <input type="text" id="nameInput" placeholder="Enter name" />
+      <input type="email" id="emailInput" placeholder="Enter email" />
+      <button id="profileSubmit">Submit</button>
+    </div>
+
+    <!-- Task 2: Temporary Note Saver with sessionStorage -->
+    <div class="section">
+      <h2>Note Saver</h2>
+      <textarea id="noteInput" placeholder="Write your note here"></textarea>
+      <button id="saveNote">Save Note</button>
+    </div>
+
+    <!-- Task 3: Cookie Consent Banner -->
+    <div id="cookieBanner">
+      <p>
+        We use cookies to enhance your experience.
+        <button id="acceptCookies">Accept</button>
+      </p>
+    </div>
+
+    <!-- Task 4: Clear Storage and Cookies -->
+    <div class="section">
+      <h2>Clear Storage</h2>
+      <button id="clearStorage">Clear All</button>
+    </div>
+
+    <!-- Task 5: Fetch a Joke -->
+    <div class="section">
+      <h2>Dad Joke</h2>
+      <button id="getJoke">Get Joke</button>
+      <div id="jokeOutput"></div>
+    </div>
+
+    <!-- Task 6: Countdown Timer -->
+    <div class="section">
+      <h2>Countdown Timer</h2>
+      <button id="startCountdown">Start Countdown</button>
+      <div id="countdownOutput"></div>
+    </div>
+
+    <!-- Task 7: Tick Logger -->
+    <div class="section">
+      <h2>Tick Logger</h2>
+      <button id="startTicking">Start Ticking</button>
+      <button id="stopTicking">Stop Ticking</button>
+      <div id="tickOutput" class="wave-text"></div>
+    </div>
+  </body>
+</html>
