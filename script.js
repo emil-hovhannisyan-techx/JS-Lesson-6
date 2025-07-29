@@ -1,44 +1,40 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // task 1 - user profile to local storage
-  const userProfile = localStorage.getItem("userProfile");
-  if (userProfile) {
-    console.log("Stored profile:", JSON.parse(userProfile));
-  }
-  // task 2  loading notes from local storage
-  const notes = sessionStorage.getItem("notes");
-  if (notes) {
-    document.getElementById("noteInput").value = notes;
-  }
-  // task 3 - checking cookie consent!
-  checkCookieConsent();
-  document
-    .getElementById("profileSubmit")
-    .addEventListener("click", saveUserProfile);
+// task 1 - user profile to local storage
+const userProfile = localStorage.getItem("userProfile");
+if (userProfile) {
+  console.log("Stored profile:", JSON.parse(userProfile));
+}
+// task 2  loading notes from local storage
+const notes = sessionStorage.getItem("notes");
+if (notes) {
+  document.getElementById("noteInput").value = notes;
+}
+// task 3 - checking cookie consent!
+checkCookieConsent();
+document
+  .getElementById("profileSubmit")
+  .addEventListener("click", saveUserProfile);
 
-  document.getElementById("saveNote").addEventListener("click", saveNotes);
-  document
-    .getElementById("acceptCookies")
-    .addEventListener("click", acceptCookies);
+document.getElementById("saveNote").addEventListener("click", saveNotes);
+document
+  .getElementById("acceptCookies")
+  .addEventListener("click", acceptCookies);
 
-  // task 4 - clear everything
-  document
-    .getElementById("clearStorage")
-    .addEventListener("click", clearAllStorages);
+// task 4 - clear everything
+document
+  .getElementById("clearStorage")
+  .addEventListener("click", clearAllStorages);
 
-  // task 5 - Fetch a good ol' dad joke
-  document.getElementById("getJoke").addEventListener("click", fetchJoke);
+// task 5 - Fetch a good ol' dad joke
+document.getElementById("getJoke").addEventListener("click", fetchJoke);
 
-  //task 6 countdown
-  document
-    .getElementById("startCountdown")
-    .addEventListener("click", startCountdown);
+//task 6 countdown
+document
+  .getElementById("startCountdown")
+  .addEventListener("click", startCountdown);
 
-  //task 7 - intervaling!
-  document
-    .getElementById("startTicking")
-    .addEventListener("click", startTicking);
-  document.getElementById("stopTicking").addEventListener("click", stopTicking);
-});
+//task 7 - intervaling!
+document.getElementById("startTicking").addEventListener("click", startTicking);
+document.getElementById("stopTicking").addEventListener("click", stopTicking);
 
 // task 1: function for saving user profile to local storage
 function saveUserProfile() {
